@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mansf.mocktest</groupId>
+  <artifactId>FileMockTest</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<easymock.version>3.1</easymock.version>
+    	<powermock.version>1.7.1</powermock.version>
+    	<Powermock.core.version>2.0.0-beta.5</Powermock.core.version>
+    	<spring.test.version>5.0.9.RELEASE</spring.test.version>
+    	<junit.version>4.12</junit.version>
+    	<powermock.api.easymock.version>2.0.0-beta.5</powermock.api.easymock.version>
+		<jacoco.version>0.8.2</jacoco.version>
+	</properties>
+<dependencies>
+   <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-module-junit4</artifactId>
+      <version>${powermock.version}</version>
+      <scope>test</scope>
+   </dependency>
+   <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-api-easymock</artifactId>
+      <version>${powermock.version}</version>
+      <scope>test</scope>
+   </dependency>  
+  	<!-- https://mvnrepository.com/artifact/org.easymock/easymock -->
+	<dependency>
+	    <groupId>org.easymock</groupId>
+	    <artifactId>easymock</artifactId>
+	    <version>${easymock.version}</version>
+	    <scope>test</scope>
+	</dependency>
+	 <!-- https://mvnrepository.com/artifact/junit/junit -->
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>${junit.version}</version>
+	    <scope>test</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.powermock/powermock-api-easymock -->
+	<dependency>
+	    <groupId>org.powermock</groupId>
+	    <artifactId>powermock-api-easymock</artifactId>
+	    <version>${powermock.api.easymock.version}</version>
+	    <scope>test</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.powermock/powermock-core -->
+	<dependency>
+	    <groupId>org.powermock</groupId>
+	    <artifactId>powermock-core</artifactId>
+	    <version>${Powermock.core.version}</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <version>${spring.test.version}</version>
+	    <scope>test</scope>
+	</dependency>	
+  </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-compiler-plugin</artifactId>
+		    <version>3.8.0</version>
+		    <configuration>
+		    	<testSource>1.8</testSource>
+		    	<testTarget>1.8</testTarget>
+		    	<source>1.8</source>
+		    	<target>1.8</target>
+		    </configuration>			
+  		</plugin>
+		<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>${jacoco.version}</version>
+			<executions>
+				<execution>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>report</id>
+					<phase>prepare-package</phase>
+					<goals>
+						<goal>report</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+  	</plugins>
+  </build>
+</project>
